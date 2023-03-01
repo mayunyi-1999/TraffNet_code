@@ -48,8 +48,7 @@ class TemperalGRU_sumovs(nn.Module):
             nn.ReLU(),
             nn.Linear(900, 600),
             nn.ReLU(),
-            nn.Linear(600, self.edge_num),
-            nn.ReLU(),
+            nn.Linear(600, self.edge_num)
         ).to(torch.device('cuda:0'))
 
         self.linear_trans = nn.Linear(in_features=self.hidden_size,
@@ -59,7 +58,7 @@ class TemperalGRU_sumovs(nn.Module):
     def forward(self, seq):
         seq = seq.reshape(-1, self.window_width, self.in_size * self.edge_num)
         all_out, _ = self.gru(seq)
-        out = all_out[:, -1, :].to(torch.device('cuda:0'))  # 因为batch_first,要的是最后一个seq
+        out = all_out[:, -1, :].to(torch.device('cuda:0'))
         pred_out = self.pred(out)
         wx = self.linear_trans(out)
         pred_out = F.relu(pred_out + wx)
