@@ -12,10 +12,6 @@ from sklearn import preprocessing
 from utils.utils import getPathFeat, getPathFeatPadWithInf, getOd2Path_t, getSeqMaxSize, getPathFeatPadWithInf_taxibj, \
     getPathFeat_taxibj
 
-'''
-    -------------获取每个Path的特征----------------
-'''
-
 
 def EmbedFeat_sumovs(startTimestamp, endtimestamps, seqmaxsize, allTimestamps):
     # load data ...
