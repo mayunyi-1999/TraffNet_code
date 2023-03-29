@@ -30,5 +30,3 @@ with open('../data_sumovs/jam_segment_info_dict.txt', 'w') as f:
 
 with open('../data_sumovs/jam_path_info_dict.txt', 'w') as f:
     f.write(str(jam_path_info_dict))
-
-print('ok')
