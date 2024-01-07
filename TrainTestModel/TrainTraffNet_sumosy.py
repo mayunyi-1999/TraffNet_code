@@ -7,7 +7,7 @@ from torch.utils.data import DataLoader
 import pathlib
 
 from datasetOp.dataset_sumosy import DataSetSumoSy, traffNet_collect_fn
-from model.PredTraffModel_sumovs import PredTraffModel_sumovs
+from model.PredTraffModel_sumosy import PredTraffModel_sumosy
 from utils.utils import getSeqMaxSize
 
 # 加载模型超参数
@@ -58,7 +58,7 @@ val_dataloader = DataLoader(dataset=val_dataset,
 
 # 定义模型，目标函数，优化器
 start_epoch = 0
-model = PredTraffModel_sumovs(seq_max_len=seq_max_size,
+model = PredTraffModel_sumosy(seq_max_len=seq_max_size,
                               window_width=window_width,
                               edge_num=edgeNum,
                               batch_size=batch_size,
